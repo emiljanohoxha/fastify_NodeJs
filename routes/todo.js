@@ -77,24 +77,6 @@ const updateTodoOpts = {
     handler: updateTodo
 }
 
-function todoRoutes(fastify, options, done){
 
-    //Get all todos
-    fastify.get('/todos',getTodosOpts);
-    
-    //get single todo
-    fastify.get('/todos/:id', getTodoOpts);
 
-    //add todo
-    fastify.post('/todos', postTodoOpts);
-
-    //delete todo
-    fastify.delete('/todos/:id', deleteTodoOpts);
-
-    //update todo
-    fastify.put('/todos/:id', updateTodoOpts);
-
-    done()
-}
-
-module.exports = {todoRoutes};
+module.exports = {getTodosOpts,getTodoOpts,postTodoOpts,deleteTodoOpts,updateTodoOpts}
