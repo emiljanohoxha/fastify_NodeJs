@@ -2,7 +2,7 @@
 GET http://localhost:5000/todos HTTP/1.1
 
 ### Get single todos
-GET http://localhost:5000/todos/2 HTTP/1.1
+GET http://localhost:5000/todos/1 HTTP/1.1
 
 ### add todo
 POST  http://localhost:5000/todos HTTP/1.1

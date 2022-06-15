@@ -2,7 +2,6 @@ const {getTodosOpts,getTodoOpts,postTodoOpts,deleteTodoOpts,updateTodoOpts}= req
 
 function todoRoutes(fastify, options, done){
 
-
     fastify.get('/todos',getTodosOpts);
     fastify.get('/todos/:id', getTodoOpts);
     fastify.post('/todos', postTodoOpts);

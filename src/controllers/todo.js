@@ -1,6 +1,6 @@
 const {v4: uuidv4} = require ('uuid')
 
-let todos = require('../../todos');
+let todos = require('../todos');
 
 
 //handlers implementation
