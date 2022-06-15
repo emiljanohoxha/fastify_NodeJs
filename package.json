@@ -1,0 +1,26 @@
+{
+  "name": "fastify_nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emiljanohoxha/fastify_NodeJs.git"
+  },
+  "author": "EmiljanoHoxha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emiljanohoxha/fastify_NodeJs/issues"
+  },
+  "homepage": "https://github.com/emiljanohoxha/fastify_NodeJs#readme",
+  "dependencies": {
+    "@fastify/swagger": "^7.3.0",
+    "fastify": "^4.0.2",
+    "uuid": "^8.3.2"
+  }
+}
