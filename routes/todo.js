@@ -97,4 +97,4 @@ function todoRoutes(fastify, options, done){
     done()
 }
 
-module.exports = todoRoutes;
+module.exports = {todoRoutes};

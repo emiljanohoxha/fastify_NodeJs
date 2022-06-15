@@ -1,35 +1,13 @@
-const fastify = require('fastify')({ logger: true });
+const {build} = require('./app')
 
+const app = build({logger:true}, {exposeRoute: true, routePrefix: '/docs', 
+swagger:{info: {title:"Fastify-API", version: "1.0.0"}}});
 
-//implementation os swagger
-fastify.register(require('@fastify/swagger'), {
-    exposeRoute: true,
-    routePrefix: '/docs',
+app.listen(5000, function(err, address){
 
-    swagger: {
-        info: {
-            title: 'fastify-api'
-        }
+    if(err){
+        app.log.error(err)
+        process.exit(1)
     }
 })
-
-fastify.register(require('./routes/todo.js'));
-
-//port where listening
-const PORT = 5000;
-
-
-const start = async () => {
-    try {
-        await fastify.listen(PORT);
-    } catch (error) {
-        fastify.log.error(error);
-        process.exit(1);
-    }
-
-}
-
-start();
-
-
 
