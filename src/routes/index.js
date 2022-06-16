@@ -1,5 +1,6 @@
 const {getTodosOpts,getTodoOpts,postTodoOpts,deleteTodoOpts,updateTodoOpts}= require('./todo')
 
+
 function todoRoutes(fastify, options, done){
 
     fastify.get('/todos',getTodosOpts);

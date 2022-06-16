@@ -1,5 +1,6 @@
 const {getTodos,getTodo,addTodo,deleteTodo,updateTodo} = require('../controllers/todo');
 
+const {vatCalculator} = require('../utlis/vatCalculator');
 //validation schemas and imported handlers
 const Todo = {
     type: 'object',
@@ -7,6 +8,7 @@ const Todo = {
                         id: {type: 'string'},
                         name: {type: 'string'},
                         description: {type: 'string'}
+                
                     }
 }
 
@@ -40,7 +42,8 @@ const postTodoOpts = {
             required: ['name', 'description'],
             properties: {
                 name: {type: 'string'},
-                description: {type: 'string'}
+                description: {type: 'string'},
+             
             },
         },
         response: {
