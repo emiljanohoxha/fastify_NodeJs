@@ -1,38 +1,8 @@
 const { vatCalculator } = require("../../utlis/vatCalculator");
 
-// const {postTodoOpts} = require('../todo');
-
-const Todo = {
-    type: 'object',
-    properties: {
-        id: { type: 'string' },
-        name: { type: 'string' },
-        description: { type: 'string' },
-        groos_amount: { type: 'number' }
-    }
-}
+const {postTodoOpts} = require('./index');
 
 
-const postTodoOpts = {
-    schema: {
-        body: {
-            type: 'object',
-            required: ['name', 'description', 'groos_amount'],
-            properties: {
-                name: { type: 'string' },
-                description: { type: 'string' },
-                groos_amount: { type: 'number' },
-            },
-        },
-        response: {
-            201: Todo
-
-        }
-    }
-
-
-
-}
 
 const todoRoutes_v2 = async (fastify, options, done) => {
 
@@ -61,8 +31,8 @@ const todoRoutes_v2 = async (fastify, options, done) => {
 
         try {
             const { id } = request.params;
-            const { name, description } = request.body;
-            const { rows } = await fastify.pg.query('UPDATE todos SET  name=$1,description=$2 WHERE id = $3 RETURNING *', [name, description, id]);
+            const { name, description,groos_amount } = request.body;
+            const { rows } = await fastify.pg.query('UPDATE todos SET  name=$1,description=$2,groos_amount=$3 WHERE id = $4 RETURNING *', [name, description,groos_amount, id]);
             reply.send(rows[0]);
         } catch (error) {
             reply.send(error);
