@@ -1,4 +1,4 @@
-//  it works but shows errors, while we run jest and when docker compose  is also running.
+//  it works but shows errors if we try to run also jest in another bash  when docker compose  is also running.
 //  Also, when running docker composer with entrypoint jest ,testing works just fine
 
 POSTGRES_DB_CONNECTION_STRING = "postgres://postgres:postgres@postgres:5432/postgres"
