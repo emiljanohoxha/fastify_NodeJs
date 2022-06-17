@@ -13,8 +13,3 @@ POSTGRES_TEMP_DB_CONNECTION_STRING = "postgres://postgres:postgres@postgres:5432
 
 
 
-
-POSTGRES_PASSWORD = "postgres"
-
-WEB_APP_HOST_PORT = "8080"
-ADMINER_HOST_PORT = "8081"
