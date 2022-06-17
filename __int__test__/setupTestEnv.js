@@ -1,16 +1,18 @@
 const {build} = require('../src/app');
 
+const env= require('./../src/config/env');
+
 const createTableSql = "CREATE TABLE IF NOT EXISTS todos (id serial PRIMARY KEY, name VARCHAR(255) ,description VARCHAR(500),groos_amount NUMERIC,net_amount NUMERIC, excluded_vat_amount Numeric);";
 
 const clearTableSql = "DELETE FROM todos";
 
 const insertSql = "INSERT INTO todos (name, description, groos_amount, net_amount, excluded_vat_amount) VALUES ($1, $2, $3, $4, $5)";
 
+
  function setupTestEnv() {
 
-
     const app = build({logger: true},{},
-        { connectionString:"postgres://postgres:postgres@localhost:5432/postgres_test"});
+        { connectionString:env.POSTGRES_TEMP_DB_CONNECTION_STRING});
 
         beforeAll(async () => {
             await app.ready();
@@ -19,7 +21,7 @@ const insertSql = "INSERT INTO todos (name, description, groos_amount, net_amoun
         })
 
         beforeEach(async () => {
-            await app.pg.query(insertSql, ['john', 'eat lunch',20, 16.67, 3.33]);
+            await app.pg.query(insertSql, ['john', 'eats lunch',20, 16.67, 3.33]);
 
         })
 
@@ -28,6 +30,8 @@ const insertSql = "INSERT INTO todos (name, description, groos_amount, net_amoun
         })
 
         afterAll(async () => {
+          await app.pg.query("drop table if exists todos")
+
             app.close()
 
         })
@@ -35,3 +39,4 @@ const insertSql = "INSERT INTO todos (name, description, groos_amount, net_amoun
 }
 
 module.exports = {setupTestEnv};
+

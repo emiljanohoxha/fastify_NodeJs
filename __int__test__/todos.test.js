@@ -22,5 +22,18 @@ describe("Integretion tests for CRUD opertaions connected to test postgres Db", 
 
     })
 
+    test("Should get a list of todos via GET route", async () => {
+        const response = await app.inject({
+          method: "GET",
+          url: "/v2",
+        });
+    
+        expect(response.statusCode).toBe(200);
+      });
+
+   
+
 })
+
+
 
